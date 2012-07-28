@@ -38,4 +38,5 @@ $(EXAMPLE).elf: main.o
 %.o: $(srcdir)/%.c
 	$(AVR_GCC) $(AVR_CFLAGS) -c -o $@ $<
 
+CLEANFILES += main.o
 main.o: $(srcdir)/main.c
