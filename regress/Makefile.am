@@ -19,7 +19,7 @@ clean-local:
 
 regression:
 if PYTHON_USE
-	@PYTHON@ ./regress.py 2> regress.err | tee regress.out
+	$(PYTHON) ./regress.py 2> regress.err | tee regress.out
 else
 	@echo "  Configure could not find python on your system so regression"
 	@echo "  tests can not be automated."

@@ -18,9 +18,9 @@ clean-local:
 extinttest:
 if PYTHON_USE
 if USE_AVR_CROSS
-	@PYTHON@ -m create_makefile -o $(srcdir)/ext.makefile \
-	                            -c $(srcdir)/ext.cfg \
-	                            -t $(srcdir)/ext.template
+	$(PYTHON) -m create_makefile -o $(srcdir)/ext.makefile \
+	                             -c $(srcdir)/ext.cfg \
+	                             -t $(srcdir)/ext.template
 	$(MAKE) -f ext.makefile test
 else
 	@echo "  Configure could not find AVR cross compiling environment so extinttest"

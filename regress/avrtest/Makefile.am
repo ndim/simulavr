@@ -16,10 +16,10 @@ clean-local:
 avrtest:
 if PYTHON_USE
 if USE_AVR_CROSS
-	@PYTHON@ -m create_makefile -o $(srcdir)/avrtest.makefile \
-	                            -c $(srcdir)/avrtest.cfg \
-	                            -t $(srcdir)/avrtest.template
-	$(MAKE) -f avrtest.makefile GNUTIME=@GNUTIME@ test
+	$(PYTHON) -m create_makefile -o $(srcdir)/avrtest.makefile \
+	                             -c $(srcdir)/avrtest.cfg \
+	                             -t $(srcdir)/avrtest.template
+	$(MAKE) -f avrtest.makefile GNUTIME=$(GNUTIME) test
 else
 	@echo "  Configure could not find AVR cross compiling environment so avrtest"
 	@echo "  can not be run."

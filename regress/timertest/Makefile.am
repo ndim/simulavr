@@ -23,9 +23,9 @@ clean-local:
 timertest:
 if PYTHON_USE
 if USE_AVR_CROSS
-	@PYTHON@ -m create_makefile -o $(srcdir)/timertest.makefile \
-	                            -c $(srcdir)/timertest.cfg \
-	                            -t $(srcdir)/timertest.template
+	$(PYTHON) -m create_makefile -o $(srcdir)/timertest.makefile \
+	                             -c $(srcdir)/timertest.cfg \
+	                             -t $(srcdir)/timertest.template
 	$(MAKE) -f timertest.makefile test
 else
 	@echo "  Configure could not find AVR cross compiling environment so timertest"

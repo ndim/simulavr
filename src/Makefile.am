@@ -21,13 +21,13 @@ if USE_SWIG
 
 if USE_TCL
 TCL_WRAP_SRC = simulavr_wrap.cxx
-TCL_LIB      = @AVR_TCL_LIB@
-TCL_INCLUDE  = @AVR_TCL_INCLUDE@
+TCL_LIB      = $(AVR_TCL_LIB)
+TCL_INCLUDE  = $(AVR_TCL_INCLUDE)
 lib_LTLIBRARIES += libsimulavr.la
 endif
 
 if PYTHON_USE
-PYTHON_MODUL_LIB=_pysimulavr@PYTHON_MODULE_EXTENSION@
+PYTHON_MODUL_LIB=_pysimulavr$(PYTHON_MODULE_EXTENSION)
 PYTHON_XTRA_INC=-Ipython
 PYTHON_MODUL_INTERFACE=$(srcdir)/python/pysimulavr.i
 noinst_LTLIBRARIES += lib_pysimulavr.la
@@ -133,7 +133,7 @@ TCLHEADER = avrdevice.h at8515.h atmega128.h at4433.h cmd/gdb.h hardware.h \
     ui/ui.h
 
 simulavr_wrap.cxx: simulavr.i $(TCLHEADER)
-	@SWIG@ -o $@ $(srcdir)/simulavr.i
+	$(SWIG) -o $@ $(srcdir)/simulavr.i
 
 simulavr_wrap.lo: simulavr_wrap.cxx
 	$(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(TCL_INCLUDE) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT $@ -MD -MP -MF .deps/simulavr_wrap.Tpo -c -o $@ $<

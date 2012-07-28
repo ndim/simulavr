@@ -17,11 +17,11 @@ $(EXAMPLE1): example.c
 	$(AVR_GCC) $(AVR_CFLAGS) -o $@ $<
 
 example1: $(EXAMPLE1)
-	PYTHONPATH=../../src @PYTHON@ example.py $(AVR_CPU):$<
+	PYTHONPATH=../../src $(PYTHON) example.py $(AVR_CPU):$<
 
 # example2: usage of Pin and Net
 example2:
-	PYTHONPATH=../../src @PYTHON@ example_pin.py
+	PYTHONPATH=../../src $(PYTHON) example_pin.py
 
 # example3: show pin output and inject change of port pin
 EXAMPLE3 = example_io.elf
@@ -30,7 +30,7 @@ $(EXAMPLE3): example_io.c
 	$(AVR_GCC) $(AVR_CFLAGS) -o $@ $<
 
 example3: $(EXAMPLE3)
-	PYTHONPATH=../../src @PYTHON@ example_io.py $(AVR_CPU):$<
+	PYTHONPATH=../../src $(PYTHON) example_io.py $(AVR_CPU):$<
 
 # example4: closed to example3, but don't inject signals to port
 EXAMPLE4 = ex_pinout.elf
@@ -39,7 +39,7 @@ $(EXAMPLE4): ex_pinout.c
 	$(AVR_GCC) $(AVR_CFLAGS) -o $@ $<
 
 example4: $(EXAMPLE4)
-	PYTHONPATH=../../src @PYTHON@ ex_pinout.py $(AVR_CPU):$<
+	PYTHONPATH=../../src $(PYTHON) ex_pinout.py $(AVR_CPU):$<
 
 # example5: multicore example with 2 ATmega16
 EXAMPLE5A = multicore_a.elf
@@ -53,7 +53,7 @@ $(EXAMPLE5B): multicore.c
 	$(AVR_GCC) $(EX5_CFLAGS) -DDUAL_B=1 -o $@ $<
 
 example5: $(EXAMPLE5A) $(EXAMPLE5B)
-	PYTHONPATH=../../src @PYTHON@ multicore.py
+	PYTHONPATH=../../src $(PYTHON) multicore.py
 
 # example6: ADC with atmega16
 EXAMPLE6 = adc.elf
@@ -63,7 +63,7 @@ $(EXAMPLE6): adc.c
 	$(AVR_GCC) $(EX6_CFLAGS) -o $@ $<
 
 example6: $(EXAMPLE6)
-	PYTHONPATH=../../src @PYTHON@ adc.py atmega16:$<
+	PYTHONPATH=../../src $(PYTHON) adc.py atmega16:$<
 
 run_example: example1 example2 example3 example4 example5 example6
 
