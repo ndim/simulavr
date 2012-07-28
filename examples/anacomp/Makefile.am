@@ -5,8 +5,6 @@
 examplesdir = $(docdir)/examples/anacomp
 
 EXAMPLE=anacomp
-AVR_GCC=@AVR_GCC@
-PYTHON=@PYTHON@
 AVR_CPU=at90s4433
 AVR_CFLAGS  = -g -O2 -mmcu=$(AVR_CPU)
 

@@ -4,8 +4,6 @@
 
 examplesdir = $(docdir)/examples/python
 
-AVR_GCC = @AVR_GCC@
-
 if USE_AVR_CROSS
 if PYTHON_USE
 

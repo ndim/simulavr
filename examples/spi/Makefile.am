@@ -5,7 +5,6 @@
 examplesdir = $(docdir)/examples/spi
 
 EXAMPLE=spi
-AVR_GCC=@AVR_GCC@
 AVR_CPU=atmega128
 AVR_CFLAGS  = -g -Os -mmcu=$(AVR_CPU)
 

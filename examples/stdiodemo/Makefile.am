@@ -4,7 +4,6 @@
 
 examplesdir = $(docdir)/examples/stdiodemo
 
-AVR_GCC=@AVR_GCC@
 EXAMPLE=stdiodemo
 AVR_CPU=atmega128
 AVR_CPU_CFLAGS =-mmcu=$(AVR_CPU)

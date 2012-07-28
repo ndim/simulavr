@@ -5,7 +5,6 @@
 examplesdir = $(docdir)/examples/atmega128_timer
 
 EXAMPLE=timer.elf
-AVR_GCC=@AVR_GCC@
 AVR_CPU=atmega128
 AVR_FREQUENCY=4000000
 AVR_CFLAGS= -g -Os -mmcu=$(AVR_CPU) -DF_CPU=$(AVR_FREQUENCY)

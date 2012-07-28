@@ -5,7 +5,6 @@
 examplesdir = $(docdir)/examples/atmel_key
 
 EXAMPLE=atmel_key
-AVR_GCC=@AVR_GCC@
 AVR_CPU=atmega128
 AVR_CPU_CFLAGS =-mmcu=$(AVR_CPU)
 AVR_CFLAGS = $(AVR_CPU_CFLAGS) -I. -DF_CPU=4000000UL \

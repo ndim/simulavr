@@ -5,7 +5,6 @@
 exampledir=$(docdir)/examples/simple_ex1
 
 EXAMPLE=fred.elf
-AVR_GCC=@AVR_GCC@
 AVR_CPU=at90s8515
 AVR_CFLAGS  = -g -O2 -mmcu=$(AVR_CPU)
 

@@ -5,7 +5,6 @@
 examplesdir = $(docdir)/examples/atmega48
 
 EXAMPLE=atmega48
-AVR_GCC=@AVR_GCC@
 AVR_CPU=atmega48
 AVR_CFLAGS  = -g -Os -mmcu=$(AVR_CPU)
 
