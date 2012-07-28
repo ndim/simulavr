@@ -112,6 +112,7 @@ simulavr_SOURCES = cmd/main.cpp cmd/dumpargs.cpp
 simulavr_LDADD = $(libsim_la_OBJECTS) $(LIBZ_FLAGS) \
   -L$(AVR_LIBBFD_LIBPATH) -lbfd -L$(AVR_LIBIBERTY_LIBPATH) -liberty \
   $(EXTRA_LIBS) $(LIBWSOCK_FLAGS)
+simulavr_LDADD += -ldl
 
 if USE_VERILOG
 VPI_LIB=avr.vpi
