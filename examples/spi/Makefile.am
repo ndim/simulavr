@@ -15,12 +15,12 @@ examples_DATA = $(EXAMPLE).elf $(EXTRA_DIST) README
 
 CLEANFILES = $(EXAMPLE).elf main.o trace
 
-all-local: $(objdir)/spidata $(objdir)/anadata
+all-local: spidata anadata
 
-$(objdir)/spidata: $(srcdir)/spidata
+spidata: $(srcdir)/spidata
 	test -r spidata || cp $(srcdir)/spidata spidata
 
-$(objdir)/anadata: $(srcdir)/anadata
+anadata: $(srcdir)/anadata
 	test -r anadata || cp $(srcdir)/anadata anadata
 
 # 1000000000ns/1000000MHz == 1000ns
