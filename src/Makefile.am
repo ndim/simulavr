@@ -2,6 +2,8 @@
 #  $Id$
 #
 
+BUILT_SOURCES =
+
 SUBDIRS = hwtimer cmd ui python
 
 AVR_LIBBFD_LIB=@AVR_LIBBFD_LIB@
@@ -13,10 +15,12 @@ AM_CXXFLAGS=-I$(AVR_LIBBFD_INC)
 CXXFLAGS=-g -O2 -Icmd -Iui -Ihwtimer
 
 bin_PROGRAMS    = simulavr
-@MAINT@ noinst_PROGRAMS = kbdgentables
+noinst_PROGRAMS =
 
 lib_LTLIBRARIES = 
 noinst_LTLIBRARIES =
+
+MAINTAINERCLEANFILES =
 
 if USE_SWIG
 
@@ -140,16 +144,21 @@ simulavr_wrap.lo: simulavr_wrap.cxx
 
 $(srcdir)/ui/keyboard.cpp: $(srcdir)/ui/keytrans.h 
 
-@MAINT@ kbdgentables_SOURCES = ui/kbdgentables.cpp
+if MAINTAINER_MODE
+noinst_PROGRAMS += kbdgentables
 
-@MAINT@ $(srcdir)/ui/keytrans.h: $(builddir)/kbdgentables \
-@MAINT@     $(srcdir)/ui/keynumber_to_scancode.dat \
-@MAINT@     $(srcdir)/ui/xcode_to_keynumber.dat
-@MAINT@	$(builddir)/kbdgentables $(srcdir)/ui
+kbdgentables_SOURCES = ui/kbdgentables.cpp
+
+MAINTAINERCLEANFILES += ui/keytrans.h
+MAINTAINERCLEANFILES += $(srcdir)/ui/keytrans.h
+BUILT_SOURCES += $(srcdir)/ui/keytrans.h
+$(srcdir)/ui/keytrans.h: kbdgentables \
+     $(srcdir)/ui/keynumber_to_scancode.dat \
+     $(srcdir)/ui/xcode_to_keynumber.dat
+	$(builddir)/kbdgentables $(srcdir)/ui
+endif
 
 EXTRA_DIST = simulavr.i python/pysimulavr.i python/README
-
-MAINTAINERCLEANFILES = ui/keytrans.h
 
 CLEANFILES = simulavr_wrap.cxx $(PYTHON_MODUL_LIB) avr.vpi \
              pysimulavr_wrap.cpp pysimulavr_wrap.h pysimulavr.py pysimulavr.pyc
