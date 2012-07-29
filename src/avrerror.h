@@ -92,7 +92,7 @@ class SystemConsoleHandler {
         
     protected:
         bool useExitAndAbort; //!< Flag, if exit/abort have to be used instead of exceptions
-        char formatStringBuffer[128]; //!< Buffer for format strings to format a message
+        char formatStringBuffer[256]; //!< Buffer for format strings to format a message
         char messageStringBuffer[512]; //!< Buffer for built message string itself
         std::ostream *msgStream; //!< Stream, where normal messages are sent to
         std::ostream *wrnStream; //!< Stream, where warning and error messages are sent to
