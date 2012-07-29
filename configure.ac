@@ -5,7 +5,7 @@
 ####
 # common initialisation of autotools
 ####
-AC_INIT([SimulAVR], [1.1dev], [simulavr-devel@nongnu.org], [simulavr], [http://www.nongnu.org/simulavr/])
+AC_INIT([SimulAVR], [1.0.0], [simulavr-devel@nongnu.org], [simulavr], [http://www.nongnu.org/simulavr/])
 AM_INIT_AUTOMAKE([1.10 -Wall -Werror foreign])
 AC_PREREQ([2.61])
 AC_CONFIG_MACRO_DIR([m4])
