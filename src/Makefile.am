@@ -132,6 +132,7 @@ TCLHEADER = avrdevice.h at8515.h atmega128.h at4433.h cmd/gdb.h hardware.h \
     ui/scope.h ui/serialrx.h ui/serialtx.h systemclock.h systemclocktypes.h \
     ui/ui.h
 
+BUILT_SOURCES += simulavr_wrap.cxx
 simulavr_wrap.cxx: simulavr.i $(TCLHEADER)
 	$(SWIG) -o $@ $(srcdir)/simulavr.i
 
